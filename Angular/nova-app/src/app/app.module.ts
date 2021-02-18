@@ -11,12 +11,15 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { HighlightDirective  } from './directives/app-highlight.directive';
 
+import { DemoPipe } from './pipes/demo.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
     HeroDetailComponent,
-    HighlightDirective
+    HighlightDirective,
+    DemoPipe
   ],
   imports: [
     BrowserModule,
