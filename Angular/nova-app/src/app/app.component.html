@@ -1,0 +1,14 @@
+<h1>{{title ? title : 'NovaExperience'}}</h1>
+
+<div class="row">
+  <!-- Hacer heroes un input  -->
+  <app-heroes [heroes]="heroes" [type]="typeHeroes" (outHero)="setHero($event)" ></app-heroes>
+  <app-heroes [heroes]="newHeroes" (outHero)="setHero($event)" ></app-heroes>
+</div>
+
+<!-- 
+  Conseguir que cada vez que se selecciones un heroe en app-heroes, app-hero-detail muestre el resultado
+  Definir un Output en app-heroes para emitir el heroe seleccionado.
+  Escuchar el evento en el app.component.html y actualizar la variable en app.component.ts
+-->
+<app-hero-detail [hero]="selectedHero" (emitNewHero)="setNewHeroInList($event)"></app-hero-detail>
