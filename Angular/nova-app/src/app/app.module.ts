@@ -9,11 +9,14 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+import { HighlightDirective  } from './directives/app-highlight.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
