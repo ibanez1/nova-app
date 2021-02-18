@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Hero } from './hero.model';
 import { HEROES } from './mock-heroes';
+import { HeroService } from './hero.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,8 +17,16 @@ export class AppComponent {
 
   typeHeroes = 'Marvel';
 
-  heroes = HEROES;
+  // heroes = HEROES;
+  heroes: Hero[] = []
   newHeroes: Array<Hero> = [];
+
+  constructor(private heroService: HeroService) { }
+
+    ngOnInit(): void {
+    console.log(this);
+    this.getHeroes();
+  }
 
   setHero(event: Hero): void{
     this.selectedHero = event;
@@ -29,4 +39,9 @@ export class AppComponent {
   setNewHeroInList(newHeroFather: Hero): void{
     this.newHeroes.push({id: newHeroFather.id, name: newHeroFather.name});
   }
+
+    getHeroes(): void {
+  this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
+}
 }
