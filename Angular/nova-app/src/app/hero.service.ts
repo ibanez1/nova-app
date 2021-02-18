@@ -2,16 +2,24 @@ import { Injectable } from '@angular/core';
 import { Hero } from './hero.model';
 import { HEROES } from './mock-heroes';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getHeroes(): Observable<Hero[]> {
-  const heroes = of(HEROES);
-  return heroes;
+//   getHeroes(): Observable<Hero[]> {
+//   const heroes = of(HEROES);
+//   return heroes;
+// }
+  getHeroes(): Observable<any> {
+  
+  return this.http.get('http://demo1696719.mockable.io/');
+  //   const heroes = of([
+  // { "id": 11, "name": "Dr Nice" }]);
+  // return heroes;
 }
 }
