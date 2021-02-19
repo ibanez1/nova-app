@@ -8,13 +8,19 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { HighlightDirective } from './directives/app-highlight.directive';
+import { BlockCopyPasteDirective } from './directives/block-copy-paste.directive';
+import { DemoPipe } from './pipes/custom.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroDetailComponent
-  ],
+    HeroDetailComponent,
+    HighlightDirective,
+    BlockCopyPasteDirective,
+    DemoPipe
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

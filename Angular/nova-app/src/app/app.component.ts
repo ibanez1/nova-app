@@ -21,11 +21,13 @@ export class AppComponent implements OnInit{
   heroes: Hero[] = [];
   newHeroes: Array<Hero> = [];
 
+  showHeroes = false;
+
   constructor(private heroService: HeroService) { }
 
     ngOnInit(): void {
     console.log(this);
-    this.getHeroes();
+    // this.getHeroes();
   }
 
   setHero(event: Hero): void{
@@ -40,11 +42,11 @@ export class AppComponent implements OnInit{
     this.newHeroes.push({id: newHeroFather.id, name: newHeroFather.name});
   }
 
-  getHeroes(): void {
-  this.heroService.getHeroes()
-      .subscribe(reponse => {
-        console.log('HEROESSSSSSSSSSSSSSSS:', reponse);
-        this.heroes = reponse.losNuevosHeroes;
-      });
-}
+  // getHeroes(): void {
+  // this.heroService.getHeroes()
+  //     .subscribe(reponse => {
+  //       console.log('HEROESSSSSSSSSSSSSSSS:', reponse);
+  //       this.heroes = reponse;
+  //       this.showHeroes = true;
+  //     });
 }

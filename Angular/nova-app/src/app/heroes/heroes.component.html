@@ -1,8 +1,10 @@
 <h2>My Heroes</h2>
 
-<ul class="heroes">
+<ul *ngIf='showHeroes' [ngClass]="{'heroes' : classHeroes}">
   <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
+    <!-- <span class="badge">{{hero.id}}</span> {{hero.name}} -->
+    <span [ngClass]="{'badge' : isEven(hero.id)}">{{hero.id | demo}}</span> {{hero.name | uppercase}}
+
   </li>
 </ul>
 
