@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HighlightDirective } from './directives/app-highlight.directive';
 import { BlockCopyPasteDirective } from './directives/block-copy-paste.directive';
 import { DemoPipe } from './pipes/custom.pipe';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DemoPipe } from './pipes/custom.pipe';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [
   ],

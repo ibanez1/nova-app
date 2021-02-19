@@ -1,22 +1,21 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { DashboardComponent } from './dashboard.component';
 import { RouterModule } from '@angular/router';
 import { routeDashboard } from './dashboard.router';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forChild([routeDashboard]),
-    FormsModule,
     DashboardComponent
   ],
-  providers: [
+  imports: [
+    CommonModule,
+    RouterModule.forChild([routeDashboard]),
+    FormsModule
   ],
-  bootstrap: [DashboardComponent]
+  providers: [
+  ]
 })
 export class DashboardModule {}
