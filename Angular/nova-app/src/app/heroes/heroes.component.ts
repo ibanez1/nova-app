@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input, SimpleChanges, OnChanges, OnDestroy, AfterViewInit } from '@angular/core';
 import { Hero } from '../hero.model';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -10,11 +11,11 @@ export class HeroesComponent implements OnInit, OnChanges, OnDestroy, AfterViewI
 
   hero: Hero = {name: 'Windstorm', id: 1};
 
-  @Input() heroes: undefined | Array<Hero>;
+  heroes: undefined | Array<Hero>;
   selectedHero: Hero | undefined;
-  @Output() outHero: EventEmitter<Hero> = new EventEmitter();
-  @Input() type = '';
-  constructor() { }
+  // @Output() outHero: EventEmitter<Hero> = new EventEmitter();
+  // @Input() type = '';
+  constructor(private heroService: HeroService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
@@ -22,11 +23,13 @@ export class HeroesComponent implements OnInit, OnChanges, OnDestroy, AfterViewI
 
   ngOnInit(): void {
     console.log(this);
+    this.getHeroes();
+
   }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
-    this.outHero.emit(hero);
+    // this.outHero.emit(hero);
   }
 
   ngAfterViewInit(): void {
@@ -34,5 +37,10 @@ export class HeroesComponent implements OnInit, OnChanges, OnDestroy, AfterViewI
 
   ngOnDestroy(): void {
   }
+
+  getHeroes(): void {
+  this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
+}
 
 }

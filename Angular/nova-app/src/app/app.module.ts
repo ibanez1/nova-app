@@ -12,6 +12,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HighlightDirective  } from './directives/app-highlight.directive';
 
 import { DemoPipe } from './pipes/demo.pipe';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DemoPipe } from './pipes/demo.pipe';
     HeroesComponent,
     HeroDetailComponent,
     HighlightDirective,
-    DemoPipe
+    DemoPipe,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
