@@ -11,15 +11,20 @@ export class HeroService {
 
   constructor(private http: HttpClient) { }
 
-//   getHeroes(): Observable<Hero[]> {
-//   const heroes = of(HEROES);
-//   return heroes;
-// }
   getHeroes(): Observable<any> {
-  
+  // const heroes = of(HEROES);
+  // return heroes;
   return this.http.get('http://demo1696719.mockable.io/');
+}
+
+
+
+
+  // getHeroes(): Observable<any> {
+  
+  // return this.http.get('http://demo1696719.mockable.io/');
   //   const heroes = of([
   // { "id": 11, "name": "Dr Nice" }]);
   // return heroes;
-}
+// }
 }

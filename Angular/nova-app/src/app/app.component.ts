@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero.model';
 import { HEROES } from './mock-heroes';
 import { HeroService } from './hero.service';
@@ -11,14 +11,14 @@ import { HeroService } from './hero.service';
     margin: 2em;
   }`],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'Tour of Heroesssssss';
   selectedHero: Hero | undefined;
 
   typeHeroes = 'Marvel';
 
   // heroes = HEROES;
-  heroes: Hero[] = []
+  heroes: Hero[] = [];
   newHeroes: Array<Hero> = [];
 
   constructor(private heroService: HeroService) { }
@@ -40,8 +40,11 @@ export class AppComponent {
     this.newHeroes.push({id: newHeroFather.id, name: newHeroFather.name});
   }
 
-    getHeroes(): void {
+  getHeroes(): void {
   this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+      .subscribe(reponse => {
+        console.log('HEROESSSSSSSSSSSSSSSS:', reponse);
+        this.heroes = reponse.losNuevosHeroes;
+      });
 }
 }
