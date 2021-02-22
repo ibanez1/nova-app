@@ -11,6 +11,9 @@ const routes: Routes = [
       loadChildren: () => import('src/app/dashboard/dashboard.module').then(mod => mod.DashboardModule)
     },
   { path: 'detail/:id', component: HeroDetailComponent },
+  { path: 'form',
+  loadChildren: () => import('src/app/form/form.module').then(mod => mod.FormModule)
+},
 ];
 
 @NgModule({

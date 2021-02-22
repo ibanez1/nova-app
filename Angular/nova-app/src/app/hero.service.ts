@@ -17,6 +17,10 @@ export class HeroService {
   return this.http.get('http://demo1696719.mockable.io/');
 }
 
+createUser(newUser): Observable<any> {
+  return this.http.post('http://demo1696719.mockable.io/', newUser);
+}
+
 
 
 
