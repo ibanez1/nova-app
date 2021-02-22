@@ -8,7 +8,11 @@ import { Hero } from '../hero.model';
 })
 export class HeroDetailComponent implements OnInit {
 
-  @Input() hero: Hero | undefined;
+  // @Input() hero: Hero | undefined;
+  hero: Hero = {
+    id: 1,
+    name: 'HERO DETAIL'
+  };
   @Output() emitNewHero: EventEmitter<Hero> = new EventEmitter();
   constructor() { }
 
