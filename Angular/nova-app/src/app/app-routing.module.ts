@@ -4,13 +4,18 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 const routes: Routes = [
+
   { path: '', redirectTo: '/heroes', pathMatch: 'full' },
   { path: 'heroes', component: HeroesComponent },
 
   { path: 'dashboard',
       loadChildren: () => import('src/app/dashboard/dashboard.module').then(mod => mod.DashboardModule)
     },
+    { path: 'form',
+    loadChildren: () => import('src/app/form/form.module').then(mod => mod.FormModule)
+  },
   { path: 'detail/:id', component: HeroDetailComponent },
+  { path: '**', redirectTo: '/heroes', pathMatch: 'full'}
 ];
 
 @NgModule({

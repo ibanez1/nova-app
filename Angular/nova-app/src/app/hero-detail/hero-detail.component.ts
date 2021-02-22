@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Hero } from '../hero.model';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
@@ -13,14 +14,18 @@ export class HeroDetailComponent implements OnInit {
     id: 1,
     name: 'HERO DETAIL'
   };
+  idFromParams: string;
+
   @Output() emitNewHero: EventEmitter<Hero> = new EventEmitter();
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   newHero: Hero = {
     name: '',
     id: 0
   };
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.idFromParams = this.route.snapshot.paramMap.get('id');
+  }
 
 
   setNewHero(): void {
